@@ -31,7 +31,6 @@ for (i = 0; i < myFinishedTasks.length; i++) {
     moveButton.appendChild(buttonText);
     myFinishedTasks[i].appendChild(moveButton);
 }
-
 //CREATES BUTTONS WHEN FUNCTIONS ARE CALLED
 const createFinishedButton = () => {
     let moveButton = document.createElement('button');
@@ -46,34 +45,6 @@ const createDoingButton = () => {
     moveButton.className = 'moveButtonDoing';
     moveButton.appendChild(buttonText);
     return moveButton;
-}
-
-//MOVE TASK TO THE FINISHED SECTION WHEN 'MOVE BUTTON' IS CLICKED INSIDE OF THE DOING LIST.
-for (i = 0; i < mButtonDoing.length; i++) {
-    mButtonDoing[i].onclick = function () {
-        let parent = this.parentElement;
-        let newButton = createFinishedButton();
-        this.replaceWith(newButton);
-        document.getElementById('finishedList').appendChild(parent);
-        console.log('Clicked Doing Button');
-    }
-}
-//MOVE TASK TO THE DOING SECTION WHEN 'MOVE BUTTON' IS CLICKED INSIDE OF THE FINISHED LIST.
-for (i = 0; i < mButtonFinished.length; i++) {
-    mButtonFinished[i].onclick = function () {
-        let parent = this.parentElement;
-        let newButton = createDoingButton();
-        this.replaceWith(newButton);
-        document.getElementById('doingList').appendChild(parent);
-        console.log('Clicked Finished Button');
-    }
-}
-//DELETE TASK WHEN 'DELETE BUTTON' IS CLICKED
-for (i = 0; i < deleteButton.length; i++) {
-    deleteButton[i].onclick = function () {
-        let parent = this.parentElement;
-        parent.remove();
-    }
 }
 
 //CREATE A NEW ELEMENT EVERYTIME ADD IS CLICKED
@@ -114,25 +85,33 @@ const newTask = () => {
     }
 
     //DOING LIST MOVE BUTTON
-    for (i = 0; i < mButtonDoing.length; i++) {
-        mButtonDoing[i].onclick = function () {
-            let parent = this.parentElement;
-            let newButton = createFinishedButton();
-            this.replaceWith(newButton);
-            document.getElementById('finishedList').appendChild(parent);
-            console.log('Clicked Doing Button');
+    function doingMoveBtn() {
+        for (i = 0; i < mButtonDoing.length; i++) {
+            mButtonDoing[i].onclick = function () {
+                let parent = this.parentElement;
+                let newButton = createFinishedButton();
+                this.replaceWith(newButton);
+                document.getElementById('finishedList').appendChild(parent);
+                console.log('Clicked Doing Button');
+                finishedMoveBtn();
+            }
         }
     }
+    doingMoveBtn();
     //FINISHED LIST MOVE BUTTON
-    for (i = 0; i < mButtonFinished.length; i++) {
-        mButtonFinished[i].onclick = function () {
-            let parent = this.parentElement;
-            let newButton = createDoingButton();
-            this.replaceWith(newButton);
-            document.getElementById('doingList').appendChild(parent);
-            console.log('Clicked Finished Button');
+    function finishedMoveBtn() {
+        for (i = 0; i < mButtonFinished.length; i++) {
+            mButtonFinished[i].onclick = function () {
+                let parent = this.parentElement;
+                let newButton = createDoingButton();
+                this.replaceWith(newButton);
+                document.getElementById('doingList').appendChild(parent);
+                console.log('Clicked Finished Button');
+                doingMoveBtn();
+            }
         }
     }
+    finishedMoveBtn();
 };
 
 //PRESS ENTER ACTIVATERS 'Add ToDo' BUTTON
