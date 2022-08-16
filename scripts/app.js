@@ -117,7 +117,7 @@ const newTask = () => {
 
 //PRESS ENTER ACTIVATERS 'Add ToDo' BUTTON
 document.addEventListener('keydown', (event) => {
-    if (event.keyCode === 13) {
+    if (event.key === 'Enter') {
         newTask();
     }
 });
