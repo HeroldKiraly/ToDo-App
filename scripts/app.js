@@ -48,7 +48,7 @@ const createDoingButton = () => {
     return moveButton;
 }
 
-//CREATE A NEW ELEMENT EVERYTIME ADD IS CLICKED
+//CREATE A NEW ELEMENT EVERYTIME ENTER IS PRESSED
 const newTask = () => {
     console.log('Clicked on Add button');
     let li = document.createElement("li");
