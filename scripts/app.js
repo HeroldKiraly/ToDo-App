@@ -1,4 +1,3 @@
-console.log('app.js LOADED');
 //GLOBAL VARIABLES
 var i;
 let tasks = document.getElementsByTagName('LI');
