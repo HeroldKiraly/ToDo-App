@@ -128,10 +128,8 @@ ul {
             color: $swatch_2;
             margin: 1px;
             width: 1.5rem;
-            border-radius: 100%;
             transition: ease 0.5s;
             &:hover {
-                border-radius: 15%;
                 width: 15%;
                 background-color: $swatch_3;
                 color: $swatch_4;

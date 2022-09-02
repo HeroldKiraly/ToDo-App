@@ -72,6 +72,7 @@ body {
   width: 5rem;
   height: 1.5rem;
 }
+
 #todoList {
   display: grid;
   grid-column: 1/3;
@@ -117,11 +118,9 @@ ul li button {
   color: #aecaff;
   margin: 1px;
   width: 1.5rem;
-  border-radius: 100%;
   transition: ease 0.5s;
 }
 ul li button:hover {
-  border-radius: 15%;
   width: 15%;
   background-color: #6495ED;
   color: #dce0e3;
