@@ -16,21 +16,23 @@ html {
 }
 
 body {
-  max-width: 50%;
   align-self: center;
   text-align: center;
   justify-content: center;
   margin: 0 auto;
-  margin-top: 5rem;
 }
 
 .main-content {
+  max-width: 50%;
   background-color: #3d434b;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 10px;
   grid-auto-rows: minmax(100px, auto);
   border-radius: 10px;
+  min-width: 400px;
+  margin: 0 auto;
+  margin-top: 5rem;
 }
 
 .adder {
@@ -76,7 +78,6 @@ body {
 #todoList {
   display: grid;
   grid-column: 1/3;
-  grid-row: 2;
   width: 100%;
   border-radius: 4rem;
 }
@@ -86,10 +87,14 @@ body {
 #todoList .section1-doing {
   grid-column: 1;
   grid-row: 2;
+  min-width: 200px;
+  max-width: 500px;
 }
 #todoList .section2-finished {
   grid-column: 2;
   grid-row: 2;
+  min-width: 200px;
+  max-width: 500px;
 }
 
 ul {
@@ -121,7 +126,6 @@ ul li button {
   transition: ease 0.5s;
 }
 ul li button:hover {
-  width: 15%;
   background-color: #6495ED;
   color: #dce0e3;
 }
